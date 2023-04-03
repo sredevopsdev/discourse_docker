@@ -1,4 +1,4 @@
-ARG from=discourse/base
+ARG from=ngeorger/base
 ARG tag=build_slim
 
 FROM $from:$tag

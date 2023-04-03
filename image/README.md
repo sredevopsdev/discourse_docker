@@ -14,7 +14,7 @@ Images and tag names are defined [here](https://github.com/discourse/discourse_d
 See both `auto_build.rb` and the respective `Dockerfile`s for details on _how_ all of this happens.
 
 
-### base ([discourse/base](https://hub.docker.com/r/discourse/base/))
+### base ([ngeorger/base](https://hub.docker.com/r/ngeorger/base/))
 
 All of the dependencies for running Discourse.  This includes runit, postgres, nginx, ruby, imagemagick, etc.  It also includes the creation of the "discourse" user and `/var/www` directory.
 

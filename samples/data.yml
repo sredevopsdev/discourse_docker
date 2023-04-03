@@ -10,7 +10,7 @@ templates:
 # docker_args:
 
 params:
-  db_default_text_search_config: "pg_catalog.english"
+  db_default_text_search_config: "pg_catalog.spanish"
 
   ## Set db_shared_buffers to a max of 25% of the total memory.
   ## will be set automatically by bootstrap based on detected RAM, or you can override
@@ -21,9 +21,9 @@ params:
 
 env:
   # ensure locale exists in container, you may need to install it
-  LC_ALL: en_US.UTF-8
-  LANG: en_US.UTF-8
-  LANGUAGE: en_US.UTF-8
+  LC_ALL: es_ES.UTF-8
+  LANG: es_ES.UTF-8
+  LANGUAGE: es_ES.UTF-8
 
 volumes:
   - volume:

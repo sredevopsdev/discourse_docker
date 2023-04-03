@@ -2,9 +2,9 @@ templates:
   - "templates/redis.template.yml"
 
 env:
-  LC_ALL: en_US.UTF-8
-  LANG: en_US.UTF-8
-  LANGUAGE: en_US.UTF-8
+  LC_ALL: es_ES.UTF-8
+  LANG: es_ES.UTF-8
+  LANGUAGE: es_ES.UTF-8
 
 # any extra arguments for Docker?
 # docker_args:

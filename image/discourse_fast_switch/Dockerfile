@@ -2,7 +2,7 @@
 # VERSION:  1.5.0
 
 # Allow to easily switch Ruby version in images that derive off this
-FROM discourse/base:2.0.20180608
+FROM ngeorger/base
 
 #LABEL maintainer="Sam Saffron \"https://twitter.com/samsaffron\""
 
