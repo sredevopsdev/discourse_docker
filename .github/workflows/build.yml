@@ -15,7 +15,8 @@ concurrency:
 
 jobs:
   base:
-    runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule') && '-8core') || '' }}
+    # runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule') && '-8core') || '' }}
+    runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
       - name: enable experimental docker features
