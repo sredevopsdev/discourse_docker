@@ -4,10 +4,10 @@ require 'pty'
 require 'optparse'
 
 images = {
-  base_slim: { name: 'base', tag: "ngeorger/base:build_slim", squash: false, extra_args: '-f slim.Dockerfile' },
-  base: { name: 'base', tag: "ngeorger/base:build", extra_args: '-f release.Dockerfile' },
-  discourse_test_build: { name: 'discourse_test', tag: "ngeorger/discourse_test:build", squash: false},
-  discourse_dev: { name: 'discourse_dev', tag: "ngeorger/discourse_dev:build", squash: false },
+  base_slim: { name: 'base', tag: "docker.io/ngeorger/base:build_slim", squash: true, extra_args: '-f slim.Dockerfile' },
+  base: { name: 'base', tag: "docker.io/ngeorger/base:build", extra_args: '-f release.Dockerfile' },
+  discourse_test_build: { name: 'discourse_test', tag: "docker.io/ngeorger/discourse_test:build", squash: false},
+  discourse_dev: { name: 'discourse_dev', tag: "docker.io/ngeorger/discourse_dev:build", squash: false },
 }
 
 def run(command)
