@@ -12,8 +12,8 @@ concurrency:
 
 jobs:
   base:
-    runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule') && '-8core') || '' }}
-    # runs-on: ubuntu-22.04
+    # runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule')) || '' }}
+    runs-on: ubuntu-20.04
     timeout-minutes: 90
     steps:
     - name: enable experimental docker features
@@ -60,7 +60,8 @@ jobs:
         docker push ngeorger/base:2.0.$TAG
         docker push ngeorger/base:release
   test:
-    runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule') && '-8core') || '' }}
+    # runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule')) || '' }}
+    runs-on: ubuntu-20.04
     timeout-minutes: 30
     needs: base
     defaults:
@@ -101,7 +102,8 @@ jobs:
         docker push ngeorger/discourse_test:slim-browsers
         docker push ngeorger/discourse_test:release
   dev:
-    runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule') && '-8core') || '' }}
+    # runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule')) || '' }}
+    runs-on: ubuntu-20.04
     timeout-minutes: 30
     needs: base
     steps:
