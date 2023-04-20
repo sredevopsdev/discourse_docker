@@ -22,6 +22,14 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 90
     steps:
+    # Configure github cache for docker.
+    - name: Configure github cache for docker
+      uses: actions/cache@v2
+      with:
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-buildx-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-buildx-
     - name: enable experimental docker features
       run: |
         sudo bash -c 'echo "{ \"cgroup-parent\": \"/actions_job\",\"experimental\":true}" > /etc/docker/daemon.json'
@@ -107,26 +115,26 @@ jobs:
         docker push ngeorger/discourse_test:slim
         docker push ngeorger/discourse_test:slim-browsers
         docker push ngeorger/discourse_test:release
-  dev:
-    # runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule')) || '' }}
-    runs-on: ubuntu-20.04
-    timeout-minutes: 30
-    needs: base
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 1
-    - name: build discourse_dev image
-      run: |
-        cd image && ruby auto_build.rb discourse_dev
-    - name: push to dockerhub
-      if: success() && (github.ref == 'refs/heads/main')
-      env:
-        DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-      run: |
-        docker tag ngeorger/discourse_dev:build ngeorger/discourse_dev:release
-        docker login --username ngeorger --password $DOCKERHUB_PASSWORD
-        docker push ngeorger/discourse_dev:release
+  # dev:
+  #   # runs-on: ubuntu-20.04${{ ((github.event_name != 'schedule')) || '' }}
+  #   runs-on: ubuntu-20.04
+  #   timeout-minutes: 30
+  #   needs: base
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #     with:
+  #       fetch-depth: 1
+  #   - name: build discourse_dev image
+  #     run: |
+  #       cd image && ruby auto_build.rb discourse_dev
+  #   - name: push to dockerhub
+  #     if: success() && (github.ref == 'refs/heads/main')
+  #     env:
+  #       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #     run: |
+  #       docker tag ngeorger/discourse_dev:build ngeorger/discourse_dev:release
+  #       docker login --username ngeorger --password $DOCKERHUB_PASSWORD
+  #       docker push ngeorger/discourse_dev:release
   aarch64:
     runs-on: ubuntu-latest
     needs: base
