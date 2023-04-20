@@ -2,9 +2,15 @@ on:
   push:
     branches:
     - main
+    paths-ignore:
+    - '.github/**'
   pull_request:
-  schedule:
-  - cron: '0 0 * * *'
+    branches:
+    - main
+    paths-ignore:
+    - '.github/**'
+  # schedule:
+  # - cron: '0 0 * * *'
 
 concurrency:
   group: build-${{ format('{0}-{1}', github.head_ref || github.run_number, github.job) }}
