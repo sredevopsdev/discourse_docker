@@ -92,7 +92,7 @@ kernel_min_version='4.4.0'
 config_file=containers/"$config".yml
 cidbootstrap=cids/"$config"_bootstrap.cid
 local_discourse=local_discourse
-image="discourse/base:2.0.20230409-0052"
+image="ngeorger/base:2.0.20230420-0128"
 docker_path=`which docker.io 2> /dev/null || which docker`
 git_path=`which git`
 
@@ -207,7 +207,7 @@ check_prereqs() {
       ;;
     aarch64 | arm64)
       echo "WARNING: Support for aarch64 is experimental at the moment. Please report any problems at https://meta.discourse.org/tag/arm"
-      image="discourse/base:aarch64"
+      image="ngeorger/base:aarch64"
       arm=true
       ;;
     x86_64)
