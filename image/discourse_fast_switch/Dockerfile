@@ -1,8 +1,8 @@
-# NAME:     discourse/discourse_fast_switch
+# NAME:     ngeorger/discourse_fast_switch
 # VERSION:  1.5.0
 
 # Allow to easily switch Ruby version in images that derive off this
-FROM discourse/base:2.0.20180608
+FROM ngeorger/base:2.0.20180608
 
 #LABEL maintainer="Sam Saffron \"https://twitter.com/samsaffron\""
 

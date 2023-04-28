@@ -207,7 +207,7 @@ check_prereqs() {
       ;;
     aarch64 | arm64)
       echo "WARNING: Support for aarch64 is experimental at the moment. Please report any problems at https://meta.discourse.org/tag/arm"
-      image="discourse/base:aarch64"
+      image="ngeorger/base:aarch64"
       arm=true
       ;;
     x86_64)

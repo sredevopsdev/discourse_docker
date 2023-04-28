@@ -1,6 +1,6 @@
 ARG from_tag=build
 
-FROM discourse/base:$from_tag AS base
+FROM ngeorger/base:$from_tag AS base
 ENV RAILS_ENV test
 
 WORKDIR /var/www/discourse

@@ -1,4 +1,4 @@
-# NAME:     discourse/base
+# NAME:     ngeorger/base
 # VERSION:  release
 FROM debian:bullseye-slim
 

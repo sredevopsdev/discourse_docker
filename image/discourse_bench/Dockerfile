@@ -1,6 +1,6 @@
-# NAME:     discourse/discourse_bench
+# NAME:     ngeorger/discourse_bench
 # VERSION:  1.4.0
-FROM discourse/discourse_test:1.4.0
+FROM ngeorger/discourse_test:1.4.0
 ENV RAILS_ENV profile
 
 #LABEL maintainer="Gerhard Schlager <mail@gerhard-schlager.at>"

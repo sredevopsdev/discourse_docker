@@ -1,6 +1,6 @@
-# NAME:     discourse/discourse_dev
+# NAME:     ngeorger/discourse_dev
 # VERSION:  release
-FROM discourse/base:release
+FROM ngeorger/base:release
 
 # Unset RAILS_ENV to allow running both dev stuff and tests
 ENV RAILS_ENV=
